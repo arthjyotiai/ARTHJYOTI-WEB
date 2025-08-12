@@ -186,3 +186,32 @@ arthjyoti-dashboard/
   <p>🧾 <strong>Audit Trail:</strong> All user actions are logged locally for transparency.</p>
   <p>🔒 <strong>Disclaimer:</strong> This dashboard is for educational and analytical use only. It does not constitute investment advice or a solicitation to trade.</p>
 </section>
+<script>
+  function simulate() {
+    const strategy = document.getElementById('strategy').value;
+    const strike = parseFloat(document.getElementById('strike').value);
+    const premium = parseFloat(document.getElementById('premium').value);
+
+    let result = '';
+
+    if (isNaN(strike) || isNaN(premium)) {
+      result = '❌ Please enter valid numbers for strike and premium.';
+    } else {
+      switch (strategy) {
+        case 'coveredCall':
+          result = `📈 Covered Call: Max gain ₹${premium}, unlimited downside below ₹${strike}`;
+          break;
+        case 'ironCondor':
+          result = `📊 Iron Condor: Limited gain/loss. Premium ₹${premium} received.`;
+          break;
+        case 'straddle':
+          result = `⚖️ Straddle: High volatility strategy. Premium ₹${premium} paid.`;
+          break;
+        default:
+          result = '❓ Unknown strategy selected.';
+      }
+    }
+
+    document.getElementById('output').innerHTML = `<p>${result}</p>`;
+  }
+</script>
