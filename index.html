@@ -23,3 +23,46 @@ arthjyoti-dashboard/
 └── assets/
     └── js/
         └── audit.js
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Screener Builder — ArthJyoti</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>📊 Screener Builder</h1>
+    <p>Filter stocks using PE, ROE, EPS, and custom logic</p>
+  </header>
+
+  <main>
+    <section>
+      <label>PE Ratio:</label>
+      <input type="number" placeholder="e.g. < 15" />
+      <label>ROE %:</label>
+      <input type="number" placeholder="e.g. > 20" />
+      <label>EPS:</label>
+      <input type="number" placeholder="e.g. > 10" />
+      <button onclick="runScreener()">Run Screener</button>
+    </section>
+
+    <section id="results">
+      <h2>Results</h2>
+      <p>No results yet. Run a query.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>🔒 SEBI Disclaimer: This tool is for educational use only.</p>
+    <p>🧾 Audit Trail Enabled</p>
+  </footer>
+
+  <script>
+    function runScreener() {
+      document.getElementById('results').innerHTML = '<p>✅ Sample result: TCS, Infosys, HDFC</p>';
+    }
+  </script>
+</body>
+</html>
