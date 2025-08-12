@@ -285,3 +285,133 @@ cp /path/to/new/index.html .
 git add .
 git commit -m "Clean slate: new dashboard deployed"
 git push origin main
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ArthJyoti Dashboard</title>
+  <link rel="icon" href="favicon.ico" />
+  <style>
+    :root {
+      --bg-light: #f5f5f5;
+      --bg-dark: #121212;
+      --text-light: #333;
+      --text-dark: #eee;
+      --accent: #0077cc;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg-light);
+      color: var(--text-light);
+      transition: background 0.3s, color 0.3s;
+    }
+    body.dark-mode {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+    header {
+      padding: 1rem;
+      text-align: center;
+      background: var(--accent);
+      color: white;
+    }
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1rem;
+      flex-wrap: wrap;
+    }
+    button {
+      padding: 0.6rem 1rem;
+      border: none;
+      border-radius: 5px;
+      background: var(--accent);
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+    .curve {
+      width: 100%;
+      height: 150px;
+      background: linear-gradient(to right, #0077cc, #00c6ff);
+      clip-path: polygon(0 100%, 0 50%, 25% 60%, 50% 40%, 75% 55%, 100% 35%, 100% 100%);
+    }
+    .disclaimer {
+      font-size: 0.8rem;
+      text-align: center;
+      padding: 1rem;
+      background: #eee;
+      color: #555;
+    }
+    .dark-mode .disclaimer {
+      background: #1e1e1e;
+      color: #aaa;
+    }
+    #languageSwitcher {
+      margin-left: 1rem;
+      padding: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ArthJyoti 📊</h1>
+    <p>Ethical. Intelligent. User-Centric Finance Tech.</p>
+  </header>
+
+  <div class="controls">
+    <button onclick="launchScreener()">🔍 Screener Builder</button>
+    <button onclick="launchSimulator()">🧪 Strategy Simulator</button>
+    <button onclick="toggleDarkMode()">🌓 Toggle Dark Mode</button>
+    <select id="languageSwitcher" onchange="switchLanguage()">
+      <option value="en">English</option>
+      <option value="ta">தமிழ்</option>
+      <option value="hi">हिन्दी</option>
+    </select>
+  </div>
+
+  <div class="curve"></div>
+
+  <div class="disclaimer" id="disclaimer">
+    This dashboard is for informational purposes only. All analytics comply with SEBI guidelines. No investment advice is offered.
+  </div>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      const mode = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+      localStorage.setItem('theme', mode);
+    }
+
+    // Load saved mode
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
+
+    function launchScreener() {
+      alert('Screener Builder launching soon...');
+    }
+
+    function launchSimulator() {
+      alert('Strategy Simulator launching soon...');
+    }
+
+    function switchLanguage() {
+      const lang = document.getElementById('languageSwitcher').value;
+      const disclaimer = document.getElementById('disclaimer');
+      if (lang === 'ta') {
+        disclaimer.textContent = 'இந்த டாஷ்போர்டு தகவல் நோக்கங்களுக்காக மட்டுமே. அனைத்து பகுப்பாய்வுகளும் SEBI வழிகாட்டுதல்களுக்கு ஏற்ப. முதலீட்டு ஆலோசனை வழங்கப்படவில்லை.';
+      } else if (lang === 'hi') {
+        disclaimer.textContent = 'यह डैशबोर्ड केवल सूचना उद्देश्यों के लिए है। सभी विश्लेषण SEBI दिशानिर्देशों के अनुरूप हैं। कोई निवेश सलाह नहीं दी जाती है।';
+      } else {
+        disclaimer.textContent = 'This dashboard is for informational purposes only. All analytics comply with SEBI guidelines. No investment advice is offered.';
+      }
+    }
+  </script>
+</body>
+</html>
