@@ -151,3 +151,26 @@ arthjyoti-dashboard/
   </footer>
 </body>
 </html>
+<section id="simulator">
+  <h2>🧮 Strategy Simulator</h2>
+  <p>Simulate options strategies with basic payoff logic</p>
+
+  <label for="strategy">Strategy Type:</label>
+  <select id="strategy">
+    <option value="coveredCall">Covered Call</option>
+    <option value="ironCondor">Iron Condor</option>
+    <option value="straddle">Straddle</option>
+  </select>
+
+  <label for="strike">Strike Price (₹):</label>
+  <input type="number" id="strike" placeholder="e.g. 1800" />
+
+  <label for="premium">Premium Received (₹):</label>
+  <input type="number" id="premium" placeholder="e.g. 120" />
+
+  <button onclick="simulate()">Simulate</button>
+
+  <div id="output">
+    <p>Simulation pending...</p>
+  </div>
+</section>
