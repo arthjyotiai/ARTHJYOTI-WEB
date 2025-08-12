@@ -66,3 +66,88 @@ arthjyoti-dashboard/
   </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Strategy Simulator — ArthJyoti</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>🧮 Strategy Simulator</h1>
+    <p>Simulate options strategies with payoff logic</p>
+  </header>
+
+  <main>
+    <section>
+      <label>Strategy Type:</label>
+      <select>
+        <option>Covered Call</option>
+        <option>Iron Condor</option>
+        <option>Straddle</option>
+      </select>
+      <label>Strike Price:</label>
+      <input type="number" />
+      <label>Premium:</label>
+      <input type="number" />
+      <button onclick="simulate()">Simulate</button>
+    </section>
+
+    <section id="output">
+      <h2>Payoff Chart</h2>
+      <p>Simulation pending...</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>🔒 SEBI Disclaimer: This simulation is for educational use only.</p>
+    <p>🧾 Audit Trail Enabled</p>
+  </footer>
+
+  <script>
+    function simulate() {
+      document.getElementById('output').innerHTML = '<p>📈 Sample payoff: Max gain ₹2,000 | Max loss ₹500</p>';
+    }
+  </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compliance Center — ArthJyoti</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>🛡️ Compliance Center</h1>
+    <p>SEBI circulars, audit logs, and legal disclaimers</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>📄 SEBI Circulars</h2>
+      <ul>
+        <li><a href="#">SEBI/HO/MIRSD/2023/001 — KYC Norms</a></li>
+        <li><a href="#">SEBI/HO/CFD/2023/045 — Algo Trading Guidelines</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>🧾 Audit Trail</h2>
+      <p>All user actions are logged locally for transparency.</p>
+    </section>
+
+    <section>
+      <h2>📢 Legal Disclaimer</h2>
+      <p>This dashboard is for educational and analytical use only. It does not constitute investment advice.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ArthJyoti. All rights reserved.</p>
+  </footer>
+</body>
+</html>
