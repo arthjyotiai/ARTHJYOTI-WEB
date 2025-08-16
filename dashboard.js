@@ -245,3 +245,6 @@ function loadScreener() {
     document.getElementById("marketCapInput").value = saved.cap;
   }
 }
+window.onload = () => {
+  loadScreener();
+};
