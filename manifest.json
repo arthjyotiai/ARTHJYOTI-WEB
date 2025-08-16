@@ -28,3 +28,18 @@
     }
   ]
 }
+{
+  "name": "ArthJyoti Dashboard",
+  "short_name": "ArthJyoti",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2c5364",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    }
+  ]
+}
