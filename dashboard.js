@@ -248,3 +248,4 @@ function loadScreener() {
 window.onload = () => {
   loadScreener();
 };
+saveScreener(sector, cap);
