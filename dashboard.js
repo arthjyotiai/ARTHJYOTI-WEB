@@ -38,3 +38,75 @@ function runScreener() {
 
   document.getElementById("screenerResults").innerHTML = filtered.length ? table : "<p>No matching stocks found.</p>";
 }
+function runScreener() {
+  const sector = document.getElementById("sectorSelect").value;
+  const cap = parseInt(document.getElementById("marketCapInput").value) || 0;
+
+  const filtered = mockStocks.filter(stock =>
+    (sector === "All" || stock.sector === sector) &&
+    stock.marketCap >= cap
+  );
+
+  renderTable(filtered);
+  renderChart(filtered);
+  saveScreener(sector, cap);
+  logAuditTrail(sector, cap, filtered.length);
+}
+
+function renderTable(data) {
+  const table = `
+    <table>
+      <thead>
+        <tr><th>Company</th><th>Sector</th><th>Market Cap (₹ Cr)</th></tr>
+      </thead>
+      <tbody>
+        ${data.map(stock => `
+          <tr>
+            <td>${stock.name}</td>
+            <td>${stock.sector}</td>
+            <td>${stock.marketCap.toLocaleString()}</td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>
+    <button onclick="exportCSV()">📤 Export CSV</button>
+  `;
+  document.getElementById("screenerResults").innerHTML = data.length ? table : "<p>No matching stocks found.</p>";
+}
+
+function exportCSV() {
+  const rows = [["Company", "Sector", "Market Cap"]];
+  mockStocks.forEach(stock => rows.push([stock.name, stock.sector, stock.marketCap]));
+  const csv = rows.map(r => r.join(",")).join("\n");
+  const blob = new Blob([csv], { type: "text/csv" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "screener_results.csv";
+  link.click();
+}
+
+function renderChart(data) {
+  const canvas = document.getElementById("strategyChart");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  canvas.width = 400;
+  canvas.height = 200;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  const maxCap = Math.max(...data.map(s => s.marketCap));
+  data.forEach((stock, i) => {
+    const barHeight = (stock.marketCap / maxCap) * 150;
+    ctx.fillStyle = "#2c5364";
+    ctx.fillRect(i * 80 + 20, 180 - barHeight, 40, barHeight);
+    ctx.fillStyle = "#333";
+    ctx.fillText(stock.name, i * 80 + 20, 190);
+  });
+}
+
+function saveScreener(sector, cap) {
+  localStorage.setItem("lastScreener", JSON.stringify({ sector, cap }));
+}
+
+function logAuditTrail(sector, cap, count) {
+  console.log(`Audit: Screener run at ${new Date().toISOString()} | Sector: ${sector} | Cap ≥ ₹${cap} Cr | Results: ${count}`);
+}
