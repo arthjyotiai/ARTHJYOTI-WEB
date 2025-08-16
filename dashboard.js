@@ -172,3 +172,25 @@ function renderChart(data) {
   canvas.width = 400;
   canvas.height = 200;
   ctx.clearRect(0,
+function renderChart(data) {
+  const ctx = document.getElementById("strategyChart").getContext("2d");
+  const chartData = {
+    labels: data.map(stock => stock.name),
+    datasets: [{
+      label: "Market Cap (₹ Cr)",
+      data: data.map(stock => stock.marketCap),
+      backgroundColor: "#ffcc00"
+    }]
+  };
+  new Chart(ctx, {
+    type: "bar",
+    data: chartData,
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        title: { display: true, text: "Strategy Simulation" }
+      }
+    }
+  });
+}
