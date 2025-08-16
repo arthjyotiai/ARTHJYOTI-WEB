@@ -194,3 +194,39 @@ function renderChart(data) {
     }
   });
 }
+let chartInstance;
+
+function renderChart(data) {
+  const ctx = document.getElementById("strategyChart").getContext("2d");
+  if (chartInstance) chartInstance.destroy();
+
+  const chartData = {
+    labels: data.map(stock => stock.name),
+    datasets: [{
+      label: "Market Cap (₹ Cr)",
+      data: data.map(stock => stock.marketCap),
+      backgroundColor: data.map((_, i) => `hsl(${i * 40}, 80%, 60%)`)
+    }]
+  };
+
+  chartInstance = new Chart(ctx, {
+    type: "bar",
+    data: chartData,
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        title: { display: true, text: "Strategy Simulation" },
+        tooltip: {
+          callbacks: {
+            label: ctx => `${ctx.raw.toLocaleString()} Cr`
+          }
+        }
+      },
+      scales: {
+        x: { title: { display: true, text: "Company" } },
+        y: { title: { display: true, text: "Market Cap (₹ Cr)" } }
+      }
+    }
+  });
+}
