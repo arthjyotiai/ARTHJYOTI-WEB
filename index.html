@@ -431,3 +431,26 @@ git push origin main
   <link rel="icon" href="favicon.ico">
   <title>ArthJyoti Dashboard</title>
 </head>
+<body>
+  <header>
+    <h1>ArthJyoti Dashboard</h1>
+    <nav>...</nav>
+  </header>
+
+  <main>
+    <!-- Dashboard content -->
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ArthJyoti. All rights reserved.</p>
+    <p><small>SEBI-compliant. For informational use only.</small></p>
+  </footer>
+
+  <script src="dashboard.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js');
+    }
+  </script>
+</body>
+</html>
