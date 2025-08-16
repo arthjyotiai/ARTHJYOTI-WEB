@@ -474,3 +474,62 @@ git push origin main
   </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ArthJyoti Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="favicon.ico" />
+</head>
+<body>
+  <header>
+    <nav class="top-nav">
+      <h1>📊 ArthJyoti</h1>
+      <ul>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#course">Course</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Your Ethical Finance Companion</h2>
+      <p>Build, simulate, and screen strategies with SEBI-compliant intelligence.</p>
+      <button onclick="launchDashboard()">Launch Dashboard</button>
+    </section>
+
+    <section id="features" class="features-grid">
+      <div class="feature-card">🧠 AI Screener Builder</div>
+      <div class="feature-card">📈 Strategy Simulator</div>
+      <div class="feature-card">🛡️ Compliance Tracker</div>
+    </section>
+
+    <section id="course" class="course-preview">
+      <h2>🎓 Learn to Use ArthJyoti</h2>
+      <ul>
+        <li>Module 1: Dashboard Overview</li>
+        <li>Module 2: Screener Customization</li>
+        <li>Module 3: Strategy Backtesting</li>
+        <li>Module 4: Legal & Ethical Guardrails</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 ArthJyoti. Built with integrity.</p>
+  </footer>
+
+  <script src="dashboard.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js');
+    }
+    function launchDashboard() {
+      document.getElementById("features").scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
+</body>
+</html>
