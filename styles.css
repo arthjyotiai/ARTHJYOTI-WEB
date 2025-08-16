@@ -119,3 +119,13 @@ th, td {
 th {
   background-color: #f0f0f0;
 }
+canvas {
+  display: block;
+  margin: 2rem auto;
+  border: 1px solid #ccc;
+}
+.disclaimer {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 1rem;
+}
