@@ -238,3 +238,10 @@ function saveScreener(sector, cap) {
   };
   localStorage.setItem("arthjyoti_screener", JSON.stringify(config));
 }
+function loadScreener() {
+  const saved = JSON.parse(localStorage.getItem("arthjyoti_screener"));
+  if (saved) {
+    document.getElementById("sectorSelect").value = saved.sector;
+    document.getElementById("marketCapInput").value = saved.cap;
+  }
+}
