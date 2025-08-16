@@ -637,3 +637,121 @@ git push origin main
 <meta property="og:image" content="assets/logo.svg" />
 <meta name="theme-color" content="#2c5364" />
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ArthJyoti Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ArthJyoti – Ethical, intelligent finance dashboard" />
+  <meta property="og:title" content="ArthJyoti – Ethical Finance Dashboard" />
+  <meta property="og:description" content="Build, simulate, and screen SEBI-compliant strategies." />
+  <meta property="og:image" content="assets/logo.svg" />
+  <meta name="theme-color" content="#2c5364" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter&family=Playfair+Display&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- 🔹 Sticky Header -->
+  <header class="sticky-header">
+    <img src="assets/logo.svg" alt="ArthJyoti Logo" class="logo" />
+    <nav>
+      <a href="#screener" class="active">Screener</a>
+      <a href="#strategy">Strategy</a>
+      <a href="#audit">Audit</a>
+      <a href="#learn">Learn</a>
+      <button id="themeToggle" aria-label="Toggle Dark Mode">🌓</button>
+    </nav>
+  </header>
+
+  <!-- 🔹 Hero Section -->
+  <section class="hero">
+    <h1>📈 ArthJyoti</h1>
+    <p>Ethical Intelligence for Every Investor</p>
+    <button onclick="document.getElementById('screener').scrollIntoView({ behavior: 'smooth' })">Launch Screener</button>
+  </section>
+
+  <!-- 🔹 Screener Module -->
+  <section id="screener" class="card">
+    <h2>🧠 Screener Builder</h2>
+    <div class="filter-row">
+      <label for="sectorSelect">Sector:</label>
+      <select id="sectorSelect">
+        <option value="All">All</option>
+        <option value="Finance">Finance</option>
+        <option value="Tech">Tech</option>
+        <option value="Energy">Energy</option>
+      </select>
+
+      <label for="marketCapSlider">Market Cap (₹ Cr):</label>
+      <input type="range" id="marketCapSlider" min="0" max="2000000" step="100000" />
+      <input type="number" id="marketCapInput" placeholder="Min ₹ Crores" />
+      <button onclick="addFilter()">+ Add Filter</button>
+    </div>
+
+    <div class="actions">
+      <button onclick="runScreener()">🔍 Run</button>
+      <button onclick="saveScreener()">💾 Save</button>
+      <button onclick="exportCSV()">📤 Export</button>
+      <button onclick="toggleChart()">📊 Toggle Chart</button>
+    </div>
+
+    <div id="screenerResults"></div>
+    <canvas id="strategyChart"></canvas>
+    <p class="disclaimer">⚖️ This screener is for informational purposes only. It does not constitute investment advice. Please consult SEBI guidelines before making decisions.</p>
+  </section>
+
+  <!-- 🔹 Strategy Simulator -->
+  <section id="strategy" class="card">
+    <h2>📊 Strategy Simulator</h2>
+    <select id="savedConfigs"></select>
+    <select id="strategyType">
+      <option value="buyHold">Buy & Hold</option>
+      <option value="momentum">Momentum</option>
+    </select>
+    <button onclick="simulateStrategy()">Simulate</button>
+    <canvas id="simulationChart"></canvas>
+    <div id="strategySummary"></div>
+  </section>
+
+  <!-- 🔹 Audit Trail Viewer -->
+  <section id="audit" class="card">
+    <h2>🧾 Audit Trail</h2>
+    <table id="auditTable">
+      <thead>
+        <tr><th>Sector</th><th>Market Cap</th><th>Results</th><th>Timestamp</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <button onclick="exportAudit()">Export Logs</button>
+  </section>
+
+  <!-- 🔹 Learn Module -->
+  <section id="learn" class="card">
+    <h2>🎓 Learn ArthJyoti</h2>
+    <div class="course-grid">
+      <div class="course-card">Module 1: Overview</div>
+      <div class="course-card">Module 2: Screener</div>
+      <div class="course-card">Module 3: Strategy</div>
+      <div class="course-card">Module 4: Compliance</div>
+    </div>
+  </section>
+
+  <!-- 🔹 Footer -->
+  <footer>
+    <p>© 2025 ArthJyoti. Built with integrity.</p>
+    <a href="https://github.com/arthjyoti">GitHub</a>
+  </footer>
+
+  <!-- 🔹 Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="dashboard.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js');
+    }
+  </script>
+</body>
+</html>
