@@ -533,3 +533,23 @@ git push origin main
   </script>
 </body>
 </html>
+<section class="module screener-builder">
+  <h2>🧠 Build Your Screener</h2>
+  <form id="screenerForm" onsubmit="event.preventDefault(); runScreener();">
+    <div class="form-group">
+      <label for="sectorSelect">Sector:</label>
+      <select id="sectorSelect">
+        <option value="All">All</option>
+        <option value="Finance">Finance</option>
+        <option value="Tech">Tech</option>
+        <option value="Energy">Energy</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="marketCapInput">Market Cap (₹ Cr):</label>
+      <input type="number" id="marketCapInput" placeholder="Min ₹ Crores" />
+    </div>
+    <button type="submit">🔍 Run Screener</button>
+  </form>
+  <div id="screenerResults"></div>
+</section>
