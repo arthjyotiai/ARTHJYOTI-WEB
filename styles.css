@@ -129,3 +129,102 @@ canvas {
   color: #666;
   margin-top: 1rem;
 }
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  background: #f9f9f9;
+  color: #333;
+}
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2c5364;
+  color: white;
+  padding: 1rem 2rem;
+}
+.top-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+.top-nav a {
+  color: white;
+  text-decoration: none;
+}
+.hero {
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  color: white;
+  padding: 3rem;
+  text-align: center;
+}
+button {
+  background: #ffcc00;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.module {
+  background: white;
+  padding: 2rem;
+  margin: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.form-group {
+  margin-bottom: 1rem;
+}
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+select, input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+#screenerResults {
+  margin-top: 2rem;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+th {
+  background-color: #f0f0f0;
+}
+canvas {
+  display: block;
+  margin: 2rem auto;
+  border: 1px solid #ccc;
+}
+.disclaimer {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 1rem;
+}
+.course-preview {
+  padding: 2rem;
+}
+.course-preview ul {
+  list-style: none;
+  padding: 0;
+}
+.course-preview li::before {
+  content: "📘 ";
+}
+footer {
+  background: #2c5364;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
