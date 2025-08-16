@@ -230,3 +230,11 @@ function renderChart(data) {
     }
   });
 }
+function saveScreener(sector, cap) {
+  const config = {
+    sector,
+    cap,
+    timestamp: new Date().toISOString()
+  };
+  localStorage.setItem("arthjyoti_screener", JSON.stringify(config));
+}
