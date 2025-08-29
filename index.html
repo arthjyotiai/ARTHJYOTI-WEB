@@ -755,3 +755,38 @@ git push origin main
   </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ArthJyoti Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="sticky-header">
+    <div class="logo">🪙 ArthJyoti</div>
+    <input type="search" placeholder="Search stocks..." class="search-bar" />
+    <div class="header-actions">
+      <button id="darkModeToggle">🌙</button>
+      <button id="refreshBtn">🔄</button>
+    </div>
+  </header>
+
+  <aside class="sidebar">
+    <nav>
+      <ul>
+        <li><a href="#dashboard">🏠 Dashboard</a></li>
+        <li><a href="#screener">📊 Screener</a></li>
+        <li><a href="#options">🔗 Option Chain</a></li>
+        <li><a href="#strategy">🧠 Strategy Lab</a></li>
+        <li><a href="#audit">🧾 Audit Trail</a></li>
+        <li><a href="#settings">⚙️ Settings</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="dashboard">
+    <section id="dashboard" class="card">Welcome to ArthJyoti</section>
+    <section id="screener" class="card">Screener Module</section>
+    <section id="options" class="card">Option Chain Viewer
