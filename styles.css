@@ -577,3 +577,14 @@ body {
   cursor: pointer;
   border-radius: 4px;
 }
+#screener {
+  padding: 20px;
+}
+
+.stock-card {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 6px;
+}
