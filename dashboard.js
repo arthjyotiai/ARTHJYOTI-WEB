@@ -462,3 +462,17 @@ window.onload = () => {
   const logs = JSON.parse(localStorage.getItem("arthjyoti_audit") || "[]");
   renderAuditTable(logs);
 };
+window.addEventListener('load', () => {
+  const modal = document.getElementById('onboardingModal');
+  const startBtn = document.getElementById('startBtn');
+
+  // Show modal only on first visit (basic localStorage check)
+  if (!localStorage.getItem('arthjyotiOnboarded')) {
+    modal.style.display = 'flex';
+  }
+
+  startBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+    localStorage.setItem('arthjyotiOnboarded', 'true');
+  });
+});
