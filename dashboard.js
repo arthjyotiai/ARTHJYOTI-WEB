@@ -476,3 +476,16 @@ window.addEventListener('load', () => {
     localStorage.setItem('arthjyotiOnboarded', 'true');
   });
 });
+window.onload = function () {
+  const modal = document.getElementById("onboardingModal");
+  const startBtn = document.getElementById("startBtn");
+
+  if (!localStorage.getItem("onboardingSeen")) {
+    modal.style.display = "block";
+  }
+
+  startBtn.onclick = function () {
+    modal.style.display = "none";
+    localStorage.setItem("onboardingSeen", "true");
+  };
+};
