@@ -807,3 +807,31 @@ git push origin main
   <h2>📊 Screener Dashboard</h2>
   <!-- Cards will be injected here -->
 </section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ArthJyoti Screener</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <img src="logo.png" alt="ArthJyoti Logo" class="logo">
+    <h1>ArthJyoti Premium Screener</h1>
+    <button id="theme-toggle">Toggle Dark/Light</button>
+</header>
+
+<main>
+    <section id="filter-panel">
+        <h2>Filters</h2>
+        <label>Combined Score ≥ <input type="number" id="combined-filter" value="3.5" step="0.1"></label>
+        <label>Qualitative Score ≥ <input type="number" id="qual-filter" value="3.5" step="0.1"></label>
+    </section>
+
+    <section id="stock-cards"></section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
