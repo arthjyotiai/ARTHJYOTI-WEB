@@ -1,0 +1,4 @@
+[
+  {"symbol":"RELIANCE.NS","current_price":600,"market_cap":1500000,"roe":28,"pe":30,"mc_min":530,"mc_max":650,"qual_score":4.0,"combined_score":4.25},
+  {"symbol":"TCS.NS","current_price":3500,"market_cap":1200000,"roe":25,"pe":32,"mc_min":3200,"mc_max":4000,"qual_score":4.0,"combined_score":4.1}
+]
