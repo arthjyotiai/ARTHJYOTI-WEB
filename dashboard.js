@@ -489,3 +489,30 @@ window.onload = function () {
     localStorage.setItem("onboardingSeen", "true");
   };
 };
+async function loadQuotes() {
+  const response = await fetch("data/quotes.json");
+  const quotes = await response.json();
+  renderScreener(quotes);
+}
+
+function renderScreener(data) {
+  const container = document.getElementById("screener");
+  container.innerHTML = "";
+
+  data.forEach(stock => {
+    const card = document.createElement("div");
+    card.className = "stock-card";
+    card.innerHTML = `
+      <h3>${stock.symbol}</h3>
+      <p>PE: ${stock.pe}</p>
+      <p>ROE: ${stock.roe}%</p>
+      <p>Volume: ${stock.volume.toLocaleString()}</p>
+    `;
+    container.appendChild(card);
+  });
+}
+
+window.onload = function () {
+  showOnboardingModal(); // already modularized
+  loadQuotes(); // new screener logic
+};
